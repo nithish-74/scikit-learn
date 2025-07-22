@@ -4,7 +4,6 @@
 
 import warnings
 from numbers import Integral, Real
-
 import numpy as np
 from scipy import sparse, stats
 from scipy.special import boxcox, inv_boxcox
@@ -238,7 +237,9 @@ def scale(X, *, axis=0, with_mean=True, with_std=True, copy=True):
         dtype=FLOAT_DTYPES,
         ensure_all_finite="allow-nan",
         input_name="X",
-    )
+)
+ 
+
     if sparse.issparse(X):
         if with_mean:
             raise ValueError(
@@ -322,7 +323,7 @@ class MinMaxScaler(OneToOneFeatureMixin, TransformerMixin, BaseEstimator):
     scales them down into a fixed range, where the largest occurring data point
     corresponds to the maximum value and the smallest one corresponds to the
     minimum value. For an example visualization, refer to :ref:`Compare
-    MinMaxScaler with other scalers <plot_all_scaling_minmax_scaler_section>`.
+    MinMaxScaler with other scalers plot_all_scaling_minmax_scaler_section>`.
 
     Read more in the :ref:`User Guide <preprocessing_scaler>`.
 
